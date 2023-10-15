@@ -35,3 +35,6 @@ windows: pip install -r requirements.txt
 linux/macos: python3 fill_db_with_json.py
 windows: python fill_db_with_json.py
 
+
+![Alt text](./image_file_name.png)
+
