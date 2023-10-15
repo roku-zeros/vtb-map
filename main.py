@@ -2,10 +2,8 @@ from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from pony.orm import *
-from chatbot.bot import get_answers
 from db.models import *
 from extra.extra import *
-from routebuilder.builder import haversine
 from typing import Dict, Any
 from pydantic import BaseModel
 
@@ -156,7 +154,7 @@ async def chatbot(req: str):
     :param req:
     :return:
     """
-    answer = get_answers(req)
+    answer = ""
     category = Category.select().where(name=answer).first
     return {"answers": category.sub_categories}
 
@@ -166,7 +164,7 @@ async def find_best_point(latitude: float, longitude: float):
     """
         Накходит опмтиальное отделение для пользщователя
     """
-    return {"point": haversine(latitude, longitude)}
+    return {"point": ""}
 
 
 @app.post("/office/")
